@@ -1,0 +1,100 @@
+
+  {% include "head.html" %}<br><br>
+  <div><div align="left">
+      <table align="left">
+   <font size="8" ><tr><td><a href="/createemp/">Create Employee</a></td></tr>
+    <tr><td><a href="/viewemp/">View Employee</a></td></tr>
+     <tr>
+        <td>
+        <a href="/addcategories/">
+             Add Categories</a></td>
+    </tr>
+    <tr>
+        <td>
+        <a href="/viewcategories/">
+             View Categories</a></td>
+    </tr>
+       <tr>
+        <td>
+        <a href="/addproduct/">
+             Add Product</a></td>
+    </tr>
+
+    <tr>
+        <td>
+        <a href="/viewproduct/">
+             View Product</a></td>
+    </tr>
+    <tr>
+        <td>
+        <a href="/viewuser/">
+             View Users</a></td>
+    </tr>
+    <tr>
+        <td>
+        <a href="/changepass/">
+            Change Password</a></td>
+    </tr>
+    <tr>
+        <td>
+        <a href="/index/">
+            Signout</a></td>
+    </tr>
+   </font>
+
+</table></div>
+      <div align="right">
+          <form method="post" action="/change/">
+        {% csrf_token %}
+    <table align="center">
+
+        <tr><th colspan="9">
+               <h2> Change Password</h2>
+        </th></tr>
+        </tr>
+        <tr>
+            <th>
+                Old Password:
+            </th>
+            <th><input type="password"  name="oldpass"></th>
+        </tr>
+         <tr>
+            <th>
+                New Password:
+            </th>
+            <th><input type="password"  name="newpass"></th>
+        </tr>
+         <tr>
+            <th>
+                Confirm  Password:
+            </th>
+            <th><input type="password"  name="confirmpass"></th>
+        </tr>
+         {%  for x in data %}
+        <tr><input type="hidden" value="{{ x.idno }}" name="t1"></tr>
+        <tr><input type="hidden" value="{{ x.name }}" name="t2"></tr>
+        <tr><input type="hidden" value="{{ x.branch }}" name="t3"></tr>
+        <tr><input type="hidden" value="{{ x.email }}" name="t4"></tr>
+        <tr><input type="hidden" value="{{ x.contactno }}" name="t5"></tr>
+        <tr><input type="hidden" value="{{ x.address }}" name="t6"></tr>
+        <tr><input type="hidden" value="{{ x.city}}" name="t7"></tr>
+        <tr><input type="hidden" value="{{ x.categoryid}}" name="t8"></tr>
+        <tr><input type="hidden" value="{{ x.password}}" name="t9"></tr>
+        {% endfor %}
+        <tr>
+        <th colspan="2">
+                <center>
+                    <button type="submit">Change Password</button></center>
+        </th></tr>
+
+    </table>
+    </form></div></div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  
